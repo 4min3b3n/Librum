@@ -1,22 +1,97 @@
 buildscript {
+    ext.kotlin_version = '1.1.50'
     repositories {
         jcenter()
+        google()
         maven {
             url  "http://dl.bintray.com/mobisystech/maven"
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+        classpath 'com.github.triplet.gradle:play-publisher:1.2.0'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url  "http://dl.bintray.com/mobisystech/maven"
-        }
+        google()
+        maven { url "https://maven.fabric.io/public" }
+        maven { url  "http://dl.bintray.com/mobisystech/maven" }
+    }
+}
+
+ext {
+    // configurations to send to Play Store for automated publishing
+    pJsonKeyFile = rootProject.file("keystores/librium_publish_key.json")
+    serviceAccountEmail = getMojaServiceAccountKey()
+
+    debugKeystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
+    debugKeystoreProperties = new Properties()
+    debugKeystoreProperties.load(new FileInputStream(ext.debugKeystorePropertiesFile))
+
+    keystorePropertiesFile = rootProject.file("keystores/keystore.properties")
+    keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(ext.keystorePropertiesFile))
+
+    /**
+     * Set this to true to create two separate APKs instead of one:
+     *   - An APK that only works on ARM devices
+     *   - An APK that only works on x86 devices
+     * The advantage is the size of the APK is reduced by about 4MB.
+     * Upload all the APKs to the Play Store and people will download
+     * the correct one based on the CPU architecture of their device.
+     */
+    enableSeparateBuildPerCPUArchitecture = true
+
+    // If true, also generate a universal APK
+    enableUniversalApk = true
+
+    // ABI codes
+    abiCodes = ["armeabi": 3, "armeabi-v7a": 4, "arm64-v8a": 5, "mips": 6, "x86": 7, "x86_64": 8]
+
+    supportLibVersion = "26.1.0"
+    constraintLayoutVersion = "1.0.2"
+
+    multiDexEnabledVersion = "1.0.2"
+
+    // anko version
+    ankoVersion = "0.10.1"
+
+    // ************  TEST DEPENDENCIES *************************
+
+    // robolectric version
+    robolectricVersion = "3.4.2"
+    robolectricShadowsMultidex = "3.3.2"
+
+    truthVersion = "0.35"
+    espressoVersion = "3.0.0"
+    jUnitVersion = "4.12"
+    mockitoVersion = "2.7.1"
+    mockWebServerVersion = "3.6.0"
+    testRunnerVersion = "1.0.0"
+    espressoContribVersion = "2.0"
+    assertJVersion = "3.6.2"
+    spekVersion = "1.1.2"
+    mockitoKotlinVersion = "1.4.0"
+    hamcrestVersion = "1.3"
+}
+
+/**
+ * Gets the Moja service account email gradle.properties file, Ensure that you have a
+ * gradle.properties file in root project directory
+ * */
+static def getMojaServiceAccountKey() {
+    try {
+        Properties properties = new Properties()
+        properties.load(new FileInputStream("gradle.properties"))
+        return properties.getProperty("SERVICE_ACCOUNT_EMAIL")
+    } catch (Exception ignored) {
+        return ""
     }
 }

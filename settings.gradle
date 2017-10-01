@@ -1,1 +1,1 @@
-include ':folioreader', ':sample', ':webViewMarker'
+include ':librium', ':sample', ':webViewMarker'

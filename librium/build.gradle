@@ -1,0 +1,224 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../config/quality/quality.gradle'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'librium'
+
+    publishedGroupId = 'com.librium'
+    libraryName = 'Librium'
+    artifact = 'librium'
+
+    libraryDescription = 'An epub reader for Android'
+
+    siteUrl = 'https://github.com/Wyvarn/Librium'
+    gitUrl = 'https://github.com/Wyvarn/Librium.git'
+
+    libraryVersion = '0.4.1'
+
+    developerId = 'croesus'
+    developerName = 'librium'
+    developerEmail = 'chiefsdome@gmail.com'
+
+    licenseName = 'FreeBSD License'
+    licenseUrl = 'https://en.wikipedia.org/wiki/FreeBSD_Documentation_License#License'
+    allLicenses = ["FreeBSD"]
+
+    versionCode = 1
+    versionName = "1.0.0"
+    minSdkVersion = 16
+    targetSdkVersion = 26
+    buildToolsVersion = "26.0.1"
+    compileSdkVersion = 26
+    supportLibVersion = "26.1.0"
+
+    // *************** DEPENDENCY VERSIONS ************************
+
+    // Dependency Injection
+    javaxAnnotationVersion = "1.0"
+    daggerVersion = "2.11"
+    javaxAnnotationVersion = "1.0"
+    javaxInjectVersion = "1"
+
+    // database & orm
+    roomVersion = "1.0.0-alpha9-1"
+
+    // r2-streamer
+    r2StreamerVersion = '0.1.2'
+
+    // swipe layout version
+    swipelayoutLibVersion = "1.2.0@aar"
+
+    // networking
+    retrofitVersion = "2.3.0"
+    retrofitAdapterVersion = "2.3.0"
+
+    // reactive
+    rxjava2Version = '2.1.1'
+    rxandroidVersion = '2.0.1'
+    rxKotlinVersion = "2.1.0"
+}
+
+android {
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
+
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+            assets.srcDirs = ['src/main/assets', 'src/test/assets']
+            res.srcDirs = [
+                    "src/main/res/layouts/feature_epubreader",
+                    "src/main/res/layouts/feature_epubpages",
+                    "src/main/res/layouts/feature_contenthighlight",
+                    "src/main/res/layouts/feature_dictionary",
+                    "src/main/res/layouts/feature_highlight",
+                    "src/main/res/layouts/feature_tableofcontents",
+                    "src/main/res/layouts/common",
+                    "src/main/res/layouts",
+                    "src/main/res",
+            ]
+        }
+
+        androidTest {
+            java.srcDirs += "src/androidTest/kotlin"
+        }
+
+        test {
+            assets.srcDirs = ['src/test/assets']
+            java.srcDirs += "src/test/kotlin"
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    lintOptions {
+        quiet true  // set to true to turn off analysis progress reporting by lint
+        abortOnError false // if true, stop the gradle build if errors are found
+        ignoreWarnings true // if true, only report errors
+        disable 'InvalidPackage' //Some libraries have issues with this.
+        disable 'OldTargetImplementation'   //Lint gives this warning but SDK 20 would be Android L Beta.
+        disable 'IconDensities'  //For testing purpose. This is safe to remove.
+        disable 'IconMissingDensityFolder'  //For testing purpose.
+    }
+
+    checkstyle {
+        ignoreFailures = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(":webViewMarker")
+
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko-commons:$ankoVersion"
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    // ********************** support libs *************************
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
+    implementation "com.android.support:support-v4:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
+
+    // ******************** swipe layout *********************
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+
+    //*****************  reactive ****************************
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+
+    // ****************** r2streamer **************************
+    implementation "org.readium:r2-fetcher:$r2StreamerVersion"
+    implementation "org.readium:r2-parser:$r2StreamerVersion"
+    implementation "org.readium:r2-server:$r2StreamerVersion"
+
+    // ******************** NETWORK *********************************
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion"
+
+    // ***************** database ORM ******************************
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+
+    // ****************** dependency injection ***************************
+    compileOnly "javax.annotation:jsr250-api:$javaxAnnotationVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "javax.inject:javax.inject:$javaxInjectVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // =========== TEST DEPENDENCIES ===========================
+    // unit tests
+    testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "org.robolectric:shadows-multidex:$robolectricShadowsMultidex"
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
+    testImplementation "org.jetbrains.spek:spek-api:$spekVersion"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrestVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+    testImplementation "com.google.truth:truth:$truthVersion"
+
+    // testing room migrations
+    testImplementation "android.arch.persistence.room:testing:$roomVersion"
+    // Fix for https://github.com/robolectric/robolectric/issues/2566
+    testImplementation "org.khronos:opengl-api:gl1.1-android-2.1_r1"
+    kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // instrumentation tests
+    androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
+    androidTestImplementation "android.arch.core:core-testing:$roomVersion"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espressoContribVersion") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+}

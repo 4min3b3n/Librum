@@ -26,7 +26,7 @@ ext {
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '26.0.1'
 
     defaultConfig {
         versionCode Integer.parseInt(project.VERSION_CODE)
@@ -37,11 +37,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
 }
-
-apply from: '../folioreader/bintray/installv1.gradle'
-apply from: '../folioreader/bintray/bintrayv1.gradle'

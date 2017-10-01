@@ -1,70 +1,80 @@
-apply plugin: 'com.android.application'
-apply plugin: 'checkstyle'
+apply plugin: "com.android.application"
+apply plugin: "kotlin-kapt"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "checkstyle"
+
+ext{
+    compileSdkVersion = 26
+    buildToolsVersion = "26.0.0"
+    ANDROID_MIN_SDK = 16
+    ANDROID_TARGET_SDK_VERSION = 26
+    supportLibVersion = "26.1.0"
+
+    VERSION_NAME = "1.1.0"
+    VERSION_CODE = 2
+}
 
 android {
-
-
-  dexOptions {
-    javaMaxHeapSize "4G"
-  }
-
-  compileSdkVersion 25
-  buildToolsVersion "25.0.0"
-
-  defaultConfig {
-    applicationId "com.folioreader.android.sample"
-    versionCode Integer.parseInt(project.VERSION_CODE)
-    versionName project.VERSION_NAME
-    minSdkVersion Integer.parseInt(project.ANDROID_MIN_SDK)
-    targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
-/*
-=======
-    applicationId "comfolioreader.android.sample"
-    versionCode 1
-    versionName "1.0"
-    minSdkVersion 16
-    targetSdkVersion 25
->>>>>>> 9b94e7613b9edc8ba39655236775c3bca53064d6
-*/
-  }
-
-  sourceSets {
-    main {
-      manifest.srcFile 'AndroidManifest.xml'
-      java.srcDirs = ['src/main/java']
-      res.srcDirs = ['res']
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.librium.sample"
+        versionCode project.ext.VERSION_CODE
+        versionName project.ext.VERSION_NAME
+        minSdkVersion project.ext.ANDROID_MIN_SDK
+        targetSdkVersion project.ext.ANDROID_TARGET_SDK_VERSION
     }
-    test {
-      java.srcDirs = ['src/test/java']
+
+    dexOptions {
+        javaMaxHeapSize "4G"
     }
-  }
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
-  }
+    sourceSets {
+        main {
+            java.srcDirs += "src/main/kotlin"
+            assets.srcDirs = ["src/main/assets", "src/test/assets"]
+            res.srcDirs = [
+                    "src/main/res/layouts/feature_main",
+                    "src/main/res/layouts",
+                    "src/main/res",
+            ]
+        }
 
-  packagingOptions {
-    exclude 'META-INF/ASL2.0'
-    exclude 'META-INF/DEPENDENCIES.txt'
-    exclude 'META-INF/LICENSE.txt'
-    exclude 'META-INF/NOTICE.txt'
-    exclude 'META-INF/NOTICE'
-    exclude 'META-INF/LICENSE'
-    exclude 'META-INF/DEPENDENCIES'
-    exclude 'META-INF/notice.txt'
-    exclude 'META-INF/license.txt'
-    exclude 'META-INF/dependencies.txt'
-    exclude 'META-INF/LGPL2.1'
-    exclude 'META-INF/services/javax.annotation.processing.Processor'
-  }
+        androidTest {
+            java.srcDirs += "src/androidTest/kotlin"
+        }
 
-  lintOptions {
-    abortOnError false
-  }
+        test {
+            assets.srcDirs = ["src/test/assets"]
+            java.srcDirs += "src/test/kotlin"
+        }
+    }
+
+    packagingOptions {
+        exclude "META-INF/ASL2.0"
+        exclude "META-INF/DEPENDENCIES.txt"
+        exclude "META-INF/LICENSE.txt"
+        exclude "META-INF/NOTICE.txt"
+        exclude "META-INF/NOTICE"
+        exclude "META-INF/LICENSE"
+        exclude "META-INF/DEPENDENCIES"
+        exclude "META-INF/notice.txt"
+        exclude "META-INF/license.txt"
+        exclude "META-INF/dependencies.txt"
+        exclude "META-INF/LGPL2.1"
+        exclude "META-INF/services/javax.annotation.processing.Processor"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-  compile project(':folioreader')
-  compile 'com.android.support:appcompat-v7:25.1.0'
+    implementation project(":librium")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
 }
