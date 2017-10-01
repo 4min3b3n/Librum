@@ -1,6 +1,5 @@
 ### Librum
 
-[![Build Status](https://api.travis-ci.org/Librum/Librum-Android.svg?branch=master)](https://travis-ci.org/Librum/Librum-Android)
 
 Librum (Latin for Book) is an ePub reader and parser framework written in Kotlin.
 
