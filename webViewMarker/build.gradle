@@ -1,38 +1,47 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'folioreader'
+    bintrayName = 'librum'
 
-    publishedGroupId = 'com.folioreader'
+    publishedGroupId = 'com.librum'
     libraryName = 'WebViewMarker'
     artifact = 'webViewMarker'
 
     libraryDescription = 'An epub reader for Android'
 
-    siteUrl = 'https://github.com/FolioReader/FolioReader-Android'
-    gitUrl = 'https://github.com/FolioReader/FolioReader-Android.git'
+    siteUrl = 'https://github.com/Wyvarn/Librum'
+    gitUrl = 'https://github.com/Wyvarn/Librum.git'
 
-    libraryVersion = '0.3.1'
+    libraryVersion = '0.4.1'
 
-    developerId = 'mobisystech'
-    developerName = 'Folio Reader'
-    developerEmail = 'mahavir@codetoart.com'
+    developerId = 'croesus'
+    developerName = 'librum'
+    developerEmail = 'chiefsdome@gmail.com'
 
     licenseName = 'FreeBSD License'
     licenseUrl = 'https://en.wikipedia.org/wiki/FreeBSD_Documentation_License#License'
     allLicenses = ["FreeBSD"]
+
+    versionCode = 1
+    versionName = "1.1.0"
+    minSdkVersion = 16
+    targetSdkVersion = 26
+    buildToolsVersion = "26.0.1"
+    compileSdkVersion = 26
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion '26.0.1'
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
 
     defaultConfig {
-        versionCode Integer.parseInt(project.VERSION_CODE)
-        versionName project.VERSION_NAME
-        minSdkVersion Integer.parseInt(project.ANDROID_MIN_SDK)
-        targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
+        versionCode project.ext.versionCode
+        versionName project.ext.versionName
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
     }
 
     buildTypes {
@@ -40,5 +49,34 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+            res.srcDirs = [
+                    "src/main/res/layouts/common",
+                    "src/main/res/layouts",
+                    "src/main/res",
+            ]
+        }
+
+        androidTest {
+            java.srcDirs += "src/androidTest/kotlin"
+        }
+
+        test {
+            java.srcDirs += "src/test/kotlin"
+        }
+    }
+
+    lintOptions {
+        quiet true  // set to true to turn off analysis progress reporting by lint
+        abortOnError false // if true, stop the gradle build if errors are found
+        ignoreWarnings true // if true, only report errors
+        disable 'InvalidPackage' //Some libraries have issues with this.
+        disable 'OldTargetApi'   //Lint gives this warning but SDK 20 would be Android L Beta.
+        disable 'IconDensities'  //For testing purpose. This is safe to remove.
+        disable 'IconMissingDensityFolder'  //For testing purpose.
     }
 }

@@ -28,7 +28,7 @@ allprojects {
 
 ext {
     // configurations to send to Play Store for automated publishing
-    pJsonKeyFile = rootProject.file("keystores/librium_publish_key.json")
+    pJsonKeyFile = rootProject.file("keystores/librum_publish_key.json")
     serviceAccountEmail = getMojaServiceAccountKey()
 
     debugKeystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "api-9154952575321923707-568780",
+  "private_key_id": "f6ddcf1d574ee4aa2899fd5ef8da5b83d279c4f5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDPXd3TcVzWp9Zw\nxCa4901v7oR9lxZ3pFjuR47V04jwI07KHpCpOXa38KeXF9hJrruRyGLH/EMj3hBz\nNKTqjFpg1VzzTOMmI0FozLSJxyHsBVv7GfDMpf9J11qkKCbSCEju0RoaixvbW5mE\ntw5SBKjZxB+YqNxY4sPkbF5Gz+EsW4RJ60puSbkRLuLYhSL5PwzrjzNOjvofv1Qh\nNPdcDoRcF72DrNDslycMyYE4/XUNrYgMrKuXr7qUrtNc+5fPe9mbUYzxiHCPs+/i\nmxfRyWfCIOxJAi02CrUnzPIgrqshb9DS09QlvMu2IYAoQUFVBxbWfc3QO0XVMH37\nHVzLnEb3AgMBAAECggEAOH+asMFySgnwo0jORBcdQiH6dz1zIaXllQZqJFg+Ny9n\niCpLv8+oSPWIs+ILTAgPkujGATb6FAus77aoOD+FYFzBtoh8Wye/6o3boq5ez6+m\nIAQxV5DivXuvdop6CT+4n1jZg+Hi9SE/8qjtfetHFg4Zjb50SsN+G/5qsWByOWM4\nWZm791Ukbf2q3qbFPnpbonP8IIFTcIl42UQt6P5NV+d2S5wA+UsTmRb0OrQ3KBy8\ntkRPtEBZKfYRu8m4q4Y9XP31//xvXldyWkPkC6nSo6PsgYwQCdH042c0cqUDJgKa\nwXMUalYE5ycdrG/zAmZ0kg2294OxyXzri/FSwnA4AQKBgQDoOx+31shnsQ6UdLTV\nrbyaxbAYrgrclIuoscjfdEX8nXDcoU1i2373xRDdM0Bc8LzOWydYGhv//yBHRZ76\nRfUJEOSJQlCU72YmygvclrByM5Wz45iNH6N1qbWsmmh71vcTz63GhndQ8W/oZKWg\nbDL1CDMoZqGqxWdzEwf8EJkaJwKBgQDkl0C2Ic/UisNGpLUtkFUcZstlksoF48p5\nY4laPWZ9VUrrKa4o8bl9rAsHyJmDD88qR/yGECgughHSB16dsP9YwKELDevwWKLh\nKExGBMMxAV/dBSzQZ5Q6I8RZVx0KbiyR1CeTKiHvVt9m2loH30m1pA0KRPlbj5MQ\nSO5maU5+sQKBgCpl6POKXgo4VB4cdItybbWgE/ddhxQgdqL02mSZeNGW+Oz+8f7z\nbenUa7DG06BkP0Q5diRql+QT8xOwDUdKEGN4VxEML2QRlQfN6X57cHlZG6K9EbPq\nK9CmjEmX4y2A4JkYWHSfRhdcDP9TqL1yI5eCyLw+iJOB+NIUjmehrCIPAoGBAIxI\nUlszltKtsbc5v0JOEB1U7D/SfI5uw8QJFLK/eZUy8b4tnwbbiWUZXs+RCLyIyC7/\nbHZtlesswXjuMt99TscNuAcLrR6blqGs1Fon9A2v9T+zPFRNLIcdihL1xgmvoUSB\nOSQ0OA0keAcruxKXsil5mtMRjyHkk3DsAPnyaEyRAoGAQtUTjBfVOacaWTUSChGv\ncy54nEzsi0SAFjpO4z1GVxMnMi0fhp3aATRcjkU1w2JU+JVkK3PK3figr1xUwr8Q\n1Hq87oGhaRMvTdLMq2eTeT7y0BGLQw1GMhcQvgOAJeZmzfA8JQw6Q9l7wsBW0OfI\nm/rbzQ4TQzAHm5NhiIQP6ik=\n-----END PRIVATE KEY-----\n",
+  "client_email": "brckmobile@api-9154952575321923707-568780.iam.gserviceaccount.com",
+  "client_id": "114642438581646993339",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/brckmobile%40api-9154952575321923707-568780.iam.gserviceaccount.com"
+}

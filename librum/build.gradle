@@ -6,21 +6,21 @@ apply from: '../config/quality/quality.gradle'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'librium'
+    bintrayName = 'librum'
 
-    publishedGroupId = 'com.librium'
-    libraryName = 'Librium'
-    artifact = 'librium'
+    publishedGroupId = 'com.librum'
+    libraryName = 'Librum'
+    artifact = 'librum'
 
     libraryDescription = 'An epub reader for Android'
 
-    siteUrl = 'https://github.com/Wyvarn/Librium'
-    gitUrl = 'https://github.com/Wyvarn/Librium.git'
+    siteUrl = 'https://github.com/Wyvarn/Librum'
+    gitUrl = 'https://github.com/Wyvarn/Librum.git'
 
     libraryVersion = '0.4.1'
 
     developerId = 'croesus'
-    developerName = 'librium'
+    developerName = 'librum'
     developerEmail = 'chiefsdome@gmail.com'
 
     licenseName = 'FreeBSD License'
@@ -28,7 +28,7 @@ ext {
     allLicenses = ["FreeBSD"]
 
     versionCode = 1
-    versionName = "1.0.0"
+    versionName = "1.1.0"
     minSdkVersion = 16
     targetSdkVersion = 26
     buildToolsVersion = "26.0.1"
@@ -67,8 +67,8 @@ android {
     buildToolsVersion project.ext.buildToolsVersion
 
     defaultConfig {
-        versionCode 1
-        versionName "1.0"
+        versionCode project.ext.versionCode
+        versionName project.ext.versionName
         minSdkVersion project.ext.minSdkVersion
         targetSdkVersion project.ext.targetSdkVersion
 

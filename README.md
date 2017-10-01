@@ -1,10 +1,10 @@
-### Librium
+### Librum
 
-[![Build Status](https://api.travis-ci.org/Librium/Librium-Android.svg?branch=master)](https://travis-ci.org/Librium/Librium-Android)
+[![Build Status](https://api.travis-ci.org/Librum/Librum-Android.svg?branch=master)](https://travis-ci.org/Librum/Librum-Android)
 
-Librium is an ePub reader and parser framework written in Kotlin.
+Librum (Latin for Book) is an ePub reader and parser framework written in Kotlin.
 
-This is a fork from [FolioReader](https://github.com/FolioReader/FolioReader-Android) with the aim of making the library easier to use and maintain. Most of the components have been re-written in accordance with an MVP structure in mind and also to make it more testable.
+This is a fork from [FolioReader](https://github.com/FolioReader/FolioReader-Android) with the aim of making the library easier to use and maintain. Most of the components have been re-written in accordance with an MVP structure in mind.
 
 ### Features
 
@@ -41,18 +41,18 @@ Most of the features will remain the same from the FolioReader library, with a c
 ### Gradle
 Add following dependency to your app build.gradle
 ``` java
-compile 'com.librium:librium:0.4.1'
+compile 'com.librum:librum:0.4.1'
 ```
 
 ### Usage
 
-To use Librium, you need to call LibriumActivity with following parameters:
-1. INTENT_EPUB_SOURCE_TYPE - your epub can come from raw or assets folder or from SD card. Use enum LibriumActivity.EpubSourceType.
+To use Librum, you need to call LibrumActivity with following parameters:
+1. INTENT_EPUB_SOURCE_TYPE - your epub can come from raw or assets folder or from SD card. Use enum LibrumActivity.EpubSourceType.
 2. INTENT_EPUB_SOURCE_PATH - assets/SD card path of the epub file or raw ID of epub file if epub file is in raw folder
 
 Reading from assets folder
 ```java
-Intent intent = new Intent(HomeActivity.this, LibriumActivity.class);
+Intent intent = new Intent(HomeActivity.this, LibrumActivity.class);
 intent.putExtra(INTENT_EPUB_SOURCE_TYPE, EpubSourceType.ASSESTS);
 intent.putExtra(INTENT_EPUB_SOURCE_PATH, "epub/The Silver Chair.epub");
 startActivity(intent);
@@ -60,7 +60,7 @@ startActivity(intent);
 
 Reading from raw folder of resources
 ```java
-Intent intent = new Intent(HomeActivity.this, LibriumActivity.class);
+Intent intent = new Intent(HomeActivity.this, LibrumActivity.class);
 intent.putExtra(INTENT_EPUB_SOURCE_TYPE, EpubSourceType.RAW);
 intent.putExtra(INTENT_EPUB_SOURCE_PATH, R.raw.adventures);
 startActivity(intent);
