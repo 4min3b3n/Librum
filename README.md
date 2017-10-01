@@ -1,5 +1,6 @@
 ### Librum
 
+[![Build Status](https://www.bitrise.io/app/d0c12cb6f49a43ad/status.svg?token=SSvOfK1bhUhr8kPNr_E-DQ&branch=master)](https://www.bitrise.io/app/d0c12cb6f49a43ad)
 
 Librum (Latin for Book) is an ePub reader and parser framework written in Kotlin.
 
