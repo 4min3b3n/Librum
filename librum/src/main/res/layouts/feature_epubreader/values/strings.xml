@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ebook_title">Book Title</string>
+    <string name="ebook_author">Book Author</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="action_search">Search</string>
+
+    <string name="epub_error_title">404</string>
+    <string name="epub_error_message_404">Could not load your book</string>
+    <string name="epub_load_error_retry">Retry</string>
+
+</resources>

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.folioreader">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.brck.moja.epubreader">
 
-    <application>
-        <activity android:name=".ui.folio.activity.ContentHighlightActivity" />
+    <application
+            android:theme="@style/MojaAppTheme"
+            tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
+
+        <activity
+                android:name=".ui.reader.EpubReaderActivity"
+                android:configChanges="orientation|screenSize">
+        </activity>
     </application>
 
 </manifest>

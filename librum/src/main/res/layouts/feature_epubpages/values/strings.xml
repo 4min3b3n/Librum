@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="minutes_left">%1$d minutes ·&#160;</string>
+    <string name="minute_left">%1$d minute ·&#160;</string>
+    <string name="less_than_minute">Less than a minute ·&#160;</string>
+</resources>
