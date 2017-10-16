@@ -7,7 +7,7 @@ import org.jetbrains.anko.AnkoLogger
  * @author lusinabrian on 05/09/17.
  * @Notes
  */
-interface EpubFileHelper : AnkoLogger{
+interface EpubFileHelper : AnkoLogger {
 
     /**
      * saves response body of file helper to disk and returns the file path

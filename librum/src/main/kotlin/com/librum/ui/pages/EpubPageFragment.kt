@@ -15,19 +15,15 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.webkit.*
 import android.widget.TextView
-import com.brck.moja.epubreader.data.model.Highlight
-import com.brck.moja.epubreader.data.model.event.WebViewPosition
-import com.brck.moja.epubreader.data.model.quickaction.QuickAction
-import com.librum.ui.base.BaseReaderFragment
+import com.librum.*
+import com.librum.data.model.event.WebViewPosition
+import com.librum.ui.base.BaseFragment
 import com.librum.ui.base.PageFragmentCallback
 import com.librum.ui.reader.EpubReaderActivity
 import com.librum.ui.widgets.ObservableWebView
-import com.brck.moja.epubreader.ui.widgets.VerticalSeekbar
 import com.librum.utils.convertDpToPixel
 import com.librum.utils.copyToClipboard
 import com.librum.utils.getHtmlContent
-import com.brck.moja.webviewmarker.TextSelectionSupport
-import com.librum.*
 import kotlinx.android.synthetic.main.fragment_epubpage.view.*
 import org.jetbrains.anko.debug
 import org.jetbrains.anko.error
@@ -42,7 +38,7 @@ import javax.inject.Inject
  * @author lusinabrian on 05/09/17.
  * @Notes EpubPageFragment which will be a single page on the epub
  */
-class EpubPageFragment : BaseReaderFragment(), EpubPageFragmentView, ObservableWebView.ScrollListener {
+class EpubPageFragment : BaseFragment(), EpubPageFragmentView, ObservableWebView.ScrollListener {
 
     private var mPos: Int = 0
     private var mPosition = -1

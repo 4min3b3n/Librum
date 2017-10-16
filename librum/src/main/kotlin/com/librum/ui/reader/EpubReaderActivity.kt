@@ -13,18 +13,10 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
-import com.brck.moja.base.data.repo.local.db.entity.BaseEntity
-import com.brck.moja.base.utils.DOCSURIKEY
-import com.brck.moja.base.utils.loadImageFromUrl
-import com.brck.moja.epubreader.R
-import com.brck.moja.epubreader.data.db.DbAdapter
-import com.brck.moja.epubreader.data.model.Highlight
-import com.brck.moja.epubreader.data.model.TOCLinkWrapper
-import com.brck.moja.epubreader.data.model.event.AnchorIdEvent
-import com.librum.ui.base.BaseReaderActivity
+import com.librum.data.model.event.AnchorIdEvent
+import com.librum.ui.base.BaseActivity
 import com.librum.ui.base.PageFragmentCallback
 import com.librum.ui.pages.PageFragmentAdapter
-import com.brck.moja.epubreader.ui.widgets.DirectionalViewpager
 import com.librum.ui.widgets.DirectionalViewpager
 import org.jetbrains.anko.info
 import org.readium.r2_streamer.model.publication.EpubPublication
@@ -38,7 +30,7 @@ import javax.inject.Inject
  * modularisation and testing, the previous library did not allow for easy use with low level APIs
  * and also was too bloated to test and expand on.
  */
-class EpubReaderActivity : BaseReaderActivity(), EpubReaderView, PageFragmentCallback, NavigationView.OnNavigationItemSelectedListener, DirectionalViewpager.OnPageChangeListener, EpubReaderChapterCallback {
+class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback, NavigationView.OnNavigationItemSelectedListener, DirectionalViewpager.OnPageChangeListener, EpubReaderChapterCallback {
 
     @Inject
     lateinit var epubReaderPresenter: EpubReaderPresenter<EpubReaderView>
@@ -79,7 +71,7 @@ class EpubReaderActivity : BaseReaderActivity(), EpubReaderView, PageFragmentCal
     override fun onResume() {
         super.onResume()
 
-        if(epubReaderPresenter.doesBookExist(epubBundle.id)){
+        if (epubReaderPresenter.doesBookExist(epubBundle.id)) {
             val fileLocation = epubReaderPresenter.getEpubFileLocation(epubBundle.id)
             initializeAndRenderBook(epubBundle.title, fileLocation!!)
             // epubReaderPresenter.onInitializeBook()

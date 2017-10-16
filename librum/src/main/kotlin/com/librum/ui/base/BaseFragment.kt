@@ -2,10 +2,10 @@ package com.librum.ui.base
 
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.brck.moja.base.ui.base.BaseFragment
 import com.librum.di.components.EpubActivityComponent
 import org.jetbrains.anko.AnkoLogger
 
@@ -13,19 +13,19 @@ import org.jetbrains.anko.AnkoLogger
  * @author lusinabrian on 05/09/17.
  * @Notes base reader fragment
  */
-abstract class BaseReaderFragment : BaseFragment(), BaseReaderView, AnkoLogger{
+abstract class BaseFragment : Fragment(), BaseView, AnkoLogger {
     /**
      * Gets the base activity this fragment is attached to
      * @return [AppBaseActivity]
      */
-    var baseReaderActivity: BaseReaderActivity? = null
+    lateinit var baseActivity: BaseActivity
         private set
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if (context is BaseReaderActivity) {
+        if (context is BaseActivity) {
             val mBaseActivity = context
-            this.baseReaderActivity = mBaseActivity
+            this.baseActivity = mBaseActivity
             mBaseActivity.onFragmentAttached()
         }
     }
@@ -34,12 +34,13 @@ abstract class BaseReaderFragment : BaseFragment(), BaseReaderView, AnkoLogger{
         retainInstance = true
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
     /**
      * Gets the activity component of the activity this fragment is attached to
      * @return [EpubActivityComponent]
      */
     val epubActivityComponent: EpubActivityComponent
-        get() = baseReaderActivity!!.epubActivityComponent
+        get() = baseActivity.epubActivityComponent
 
     /**
      * Callback interface for this fragment */
@@ -56,9 +57,25 @@ abstract class BaseReaderFragment : BaseFragment(), BaseReaderView, AnkoLogger{
         fun onFragmentDetached(tag: String)
     }
 
-    abstract override fun setUp(view: View)
+    abstract fun setUp(view: View)
 
     override fun onError() {
 
+    }
+
+    override fun showErrorSnackbar(message: String, rootLayout: Int, length: Int) {
+        if (baseActivity != null) {
+            baseActivity.showErrorSnackbar(message, rootLayout, length)
+        }
+    }
+
+    override fun showErrorSnackbar(message: Int, rootLayout: Int, length: Int) {
+        if (baseActivity != null) {
+            baseActivity.showErrorSnackbar(message, rootLayout, length)
+        }
+    }
+
+    override fun isNetworkConnected(): Boolean {
+        return baseActivity != null && baseActivity.isNetworkConnected()
     }
 }

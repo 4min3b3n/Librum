@@ -1,9 +1,8 @@
 @file:JvmName("HtmlUtil")
+
 package com.librum.utils
 
 import android.content.Context
-import com.brck.moja.epubreader.R
-import com.brck.moja.epubreader.data.db.HighLightTable
 import java.util.regex.Pattern
 
 

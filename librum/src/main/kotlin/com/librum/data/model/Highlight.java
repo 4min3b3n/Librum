@@ -3,8 +3,6 @@ package com.librum.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.brck.moja.epubreader.R;
-
 import java.util.Date;
 
 public class Highlight implements Parcelable {

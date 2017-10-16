@@ -1,88 +1,89 @@
 package com.librum.data.model;
 
 
-import com.brck.moja.epubreader.ui.base.MultiLevelExpIndListAdapter;
+import com.librum.ui.base.MultiLevelExpIndListAdapter;
 
 import org.readium.r2_streamer.model.tableofcontents.TOCLink;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TOCLinkWrapper implements MultiLevelExpIndListAdapter.ExpIndData{
-    private TOCLink tocLink;
-    private int indentation;
-    private ArrayList<TOCLinkWrapper> tocLinkWrappers;
-    private boolean isGroup;
-    private int mGroupSize;
+public class TOCLinkWrapper implements MultiLevelExpIndListAdapter.ExpIndData {
 
-    public TOCLinkWrapper(TOCLink tocLink, int indentation) {
-        this.tocLink = tocLink;
-        this.indentation = indentation;
-        this.tocLinkWrappers = new ArrayList<>();
-        this.isGroup = (tocLink.getTocLinks()!=null && tocLink.getTocLinks().size()>0);
-    }
+  private TOCLink tocLink;
+  private int indentation;
+  private ArrayList<TOCLinkWrapper> tocLinkWrappers;
+  private boolean isGroup;
+  private int mGroupSize;
 
-    @Override
-    public String toString() {
-        return "TOCLinkWrapper{" +
-                "tocLink=" + tocLink +
-                ", indentation=" + indentation +
-                ", tocLinkWrappers=" + tocLinkWrappers +
-                ", isGroup=" + isGroup +
-                ", mGroupSize=" + mGroupSize +
-                '}';
-    }
+  public TOCLinkWrapper(TOCLink tocLink, int indentation) {
+    this.tocLink = tocLink;
+    this.indentation = indentation;
+    this.tocLinkWrappers = new ArrayList<>();
+    this.isGroup = (tocLink.getTocLinks() != null && tocLink.getTocLinks().size() > 0);
+  }
 
-    public int getIndentation() {
-        return indentation;
-    }
+  @Override
+  public String toString() {
+    return "TOCLinkWrapper{" +
+        "tocLink=" + tocLink +
+        ", indentation=" + indentation +
+        ", tocLinkWrappers=" + tocLinkWrappers +
+        ", isGroup=" + isGroup +
+        ", mGroupSize=" + mGroupSize +
+        '}';
+  }
 
-    public void setIndentation(int indentation) {
-        this.indentation = indentation;
-    }
+  public int getIndentation() {
+    return indentation;
+  }
 
-    public TOCLink getTocLink() {
-        return tocLink;
-    }
+  public void setIndentation(int indentation) {
+    this.indentation = indentation;
+  }
 
-    public void setTocLink(TOCLink tocLink) {
-        this.tocLink = tocLink;
-    }
+  public TOCLink getTocLink() {
+    return tocLink;
+  }
 
-    public ArrayList<TOCLinkWrapper> getTocLinkWrappers() {
-        return tocLinkWrappers;
-    }
+  public void setTocLink(TOCLink tocLink) {
+    this.tocLink = tocLink;
+  }
 
-    public void setTocLinkWrappers(ArrayList<TOCLinkWrapper> tocLinkWrappers) {
-        this.tocLinkWrappers = tocLinkWrappers;
-    }
+  public ArrayList<TOCLinkWrapper> getTocLinkWrappers() {
+    return tocLinkWrappers;
+  }
 
-    public void addChild(TOCLinkWrapper tocLinkWrapper) {
-        getTocLinkWrappers().add(tocLinkWrapper);
-        //tocLinkWrapper.setIndentation(getIndentation() + 1);
-    }
+  public void setTocLinkWrappers(ArrayList<TOCLinkWrapper> tocLinkWrappers) {
+    this.tocLinkWrappers = tocLinkWrappers;
+  }
 
-    @Override
-    public List<? extends MultiLevelExpIndListAdapter.ExpIndData> getChildren() {
-        return tocLinkWrappers;
-    }
+  public void addChild(TOCLinkWrapper tocLinkWrapper) {
+    getTocLinkWrappers().add(tocLinkWrapper);
+    //tocLinkWrapper.setIndentation(getIndentation() + 1);
+  }
 
-    @Override
-    public boolean isGroup() {
-        return isGroup;
-    }
+  @Override
+  public List<? extends MultiLevelExpIndListAdapter.ExpIndData> getChildren() {
+    return tocLinkWrappers;
+  }
 
-    @Override
-    public void setIsGroup(boolean value) {
-        this.isGroup = value;
-    }
+  @Override
+  public boolean isGroup() {
+    return isGroup;
+  }
 
-    @Override
-    public void setGroupSize(int groupSize) {
-        mGroupSize = groupSize;
-    }
+  @Override
+  public void setIsGroup(boolean value) {
+    this.isGroup = value;
+  }
 
-    public int getGroupSize() {
-        return mGroupSize;
-    }
+  public int getGroupSize() {
+    return mGroupSize;
+  }
+
+  @Override
+  public void setGroupSize(int groupSize) {
+    mGroupSize = groupSize;
+  }
 }

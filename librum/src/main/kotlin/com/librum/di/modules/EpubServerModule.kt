@@ -3,12 +3,12 @@ package com.librum.di.modules
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.librum.di.qualifiers.AppContextQualifier
 import com.librum.LOCALHOST
 import com.librum.PORT_NUMBER
 import com.librum.data.server.EpubRetrofitService
 import com.librum.data.server.EpubServerHelper
 import com.librum.data.server.EpubServerHelperImpl
+import com.librum.di.qualifiers.AppContextQualifier
 import dagger.Module
 import dagger.Provides
 import io.reactivex.schedulers.Schedulers

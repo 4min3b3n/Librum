@@ -1,4 +1,4 @@
-package com.brck.moja.epubreader.data.model.event
+package com.librum.data.model.event
 
 /**
  * This event is used when web page

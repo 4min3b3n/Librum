@@ -13,7 +13,7 @@ interface EpubReaderPrefs : AnkoLogger {
      * @param epubId unique identifier for the epub file
      * @return [String] file path to the epub file location
      * */
-    fun getEpubFileLocation(epubId : String) : String
+    fun getEpubFileLocation(epubId: String): String
 
     /**
      * Saves the epub file location
@@ -24,7 +24,7 @@ interface EpubReaderPrefs : AnkoLogger {
      * remove book state
      * @param bookTitleKey Book title which will act as a key for accessing the shared prefs
      * */
-    fun removeBookState(bookTitleKey : String)
+    fun removeBookState(bookTitleKey: String)
 
     /**
      * saves the current book state
@@ -32,26 +32,26 @@ interface EpubReaderPrefs : AnkoLogger {
      * @param pageViewPagerPosition the position of the book in the view pager
      * @param webViewScrollPosition the scroll position of the web view
      * */
-    fun saveBookState(bookTitle: String, pageViewPagerPosition : Int, webViewScrollPosition: Int)
+    fun saveBookState(bookTitle: String, pageViewPagerPosition: Int, webViewScrollPosition: Int)
 
     /**
      * Checks if the previous book state exists
      * @param bookName, used to check for the book in the shared preferences file
      * @return [Boolean] returns True if the state exists
      * */
-    fun checkPreviousBookStateExist(bookName : String) : Boolean
+    fun checkPreviousBookStateExist(bookName: String): Boolean
 
     /**
      * Get the previous book state position
      * @param bookName the book name to retrieve the state o the position
      * @return [Int] the previous book state position for this given book
      * */
-    fun getPreviousBookStatePosition(bookName: String) : Int
+    fun getPreviousBookStatePosition(bookName: String): Int
 
     /**
      * Gets previous book state web view position
      * @param bookTitle the book title to use to retrieve the previous book state webview position
      * @return [Int] the previous webview position of the given book
      * */
-    fun getPreviousBookStateWebViewPosition(bookTitle: String) : Int
+    fun getPreviousBookStateWebViewPosition(bookTitle: String): Int
 }

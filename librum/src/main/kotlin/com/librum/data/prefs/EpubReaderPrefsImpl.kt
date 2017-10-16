@@ -1,13 +1,11 @@
 package com.librum.data.prefs
 
 import android.content.Context
-import com.librum.di.qualifiers.AppContextQualifier
-import com.brck.moja.base.utils.removeData
-import com.brck.moja.base.utils.saveData
 import com.librum.BOOK_STATE
 import com.librum.BOOK_TITLE
 import com.librum.VIEWPAGER_POSITION
 import com.librum.WEBVIEW_SCROLL_POSITION
+import com.librum.di.qualifiers.AppContextQualifier
 import org.jetbrains.anko.error
 import org.json.JSONException
 import org.json.JSONObject

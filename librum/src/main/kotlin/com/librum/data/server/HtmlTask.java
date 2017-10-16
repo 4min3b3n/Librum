@@ -24,33 +24,33 @@ public class HtmlTask extends AsyncTask<String, Void, String> {
 //        this.callback = callback;
 //    }
 
-    @Override
-    protected String doInBackground(String... urls) {
-        String strUrl = urls[0];
-        try {
-            URL url = new URL(strUrl);
-            URLConnection urlConnection = url.openConnection();
-            InputStream inputStream = urlConnection.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-            return stringBuilder.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+  @Override
+  protected String doInBackground(String... urls) {
+    String strUrl = urls[0];
+    try {
+      URL url = new URL(strUrl);
+      URLConnection urlConnection = url.openConnection();
+      InputStream inputStream = urlConnection.getInputStream();
+      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+      StringBuilder stringBuilder = new StringBuilder();
+      String line;
+      while ((line = bufferedReader.readLine()) != null) {
+        stringBuilder.append(line);
+      }
+      return stringBuilder.toString();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+    return null;
+  }
 
-    @Override
-    protected void onPostExecute(String htmlString) {
+  @Override
+  protected void onPostExecute(String htmlString) {
 //        if (htmlString != null) {
 //            callback.onReceiveHtml(htmlString);
 //        } else {
 //            callback.onError();
 //        }
-        cancel(true);
-    }
+    cancel(true);
+  }
 }

@@ -2,11 +2,10 @@ package com.librum.ui.pages
 
 import android.os.Bundle
 import android.view.View
+import com.librum.*
 import com.librum.data.EpubReaderDataManager
 import com.librum.data.io.EpubSchedulerProvider
-import com.brck.moja.epubreader.data.model.Highlight
-import com.librum.ui.base.BaseReaderPresenterImpl
-import com.librum.*
+import com.librum.ui.base.BasePresenterImpl
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -16,7 +15,7 @@ import javax.inject.Inject
  */
 class EpubPageFragmentPresenterImpl<V : EpubPageFragmentView>
 @Inject
-constructor(mEpubReaderDataManager: EpubReaderDataManager, mCompositeDisposable: CompositeDisposable, mSchedulerProvider: EpubSchedulerProvider) : EpubPageFragmentPresenter<V>, BaseReaderPresenterImpl<V>(mEpubReaderDataManager, mCompositeDisposable, mSchedulerProvider) {
+constructor(mEpubReaderDataManager: EpubReaderDataManager, mCompositeDisposable: CompositeDisposable, mSchedulerProvider: EpubSchedulerProvider) : EpubPageFragmentPresenter<V>, BasePresenterImpl<V>(mEpubReaderDataManager, mCompositeDisposable, mSchedulerProvider) {
 
     override fun onAttach(mBaseView: V) {
         super.onAttach(mBaseView)

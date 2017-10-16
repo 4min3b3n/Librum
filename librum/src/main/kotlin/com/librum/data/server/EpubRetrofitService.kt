@@ -24,7 +24,7 @@ interface EpubRetrofitService {
      * */
     @Streaming
     @GET
-    fun parseEpubManifest(@Url fileUrl: String) : Observable<EpubPublication>
+    fun parseEpubManifest(@Url fileUrl: String): Observable<EpubPublication>
 
     /**
      * downloads a given web page for display on a html document or the epub page fragment
@@ -33,5 +33,5 @@ interface EpubRetrofitService {
      * */
     @Streaming
     @GET
-    fun downloadHtmlWebPage(@Url webPage : String) : Observable<Response<ResponseBody>>
+    fun downloadHtmlWebPage(@Url webPage: String): Observable<Response<ResponseBody>>
 }

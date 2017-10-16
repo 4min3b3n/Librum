@@ -1,6 +1,5 @@
 package com.librum.di.modules
 
-import com.brck.moja.base.di.modules.BaseAppModule
 import com.librum.EPUB_READER_PREF_FILE_NAME
 import com.librum.data.EpubReaderDataManager
 import com.librum.data.EpubReaderDataManagerImpl

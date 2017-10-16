@@ -18,5 +18,5 @@ import javax.inject.Singleton
 interface EpubComponent {
     fun application(): Application
 
-    val epubReaderDataManager : EpubReaderDataManager
+    val epubReaderDataManager: EpubReaderDataManager
 }

@@ -1,8 +1,7 @@
 package com.librum.ui.reader
 
 import android.os.Bundle
-import com.brck.moja.base.data.repo.local.db.entity.BaseEntity
-import com.librum.ui.base.BaseReaderPresenter
+import com.librum.ui.base.BasePresenter
 import org.readium.r2_streamer.model.publication.link.Link
 import org.readium.r2_streamer.model.tableofcontents.TOCLink
 import java.util.*
@@ -11,7 +10,7 @@ import java.util.*
  * @author lusinabrian on 05/09/17.
  * @Notes presenter interface for EpubReader
  */
-interface EpubReaderPresenter<V : EpubReaderView> : BaseReaderPresenter<V> {
+interface EpubReaderPresenter<V : EpubReaderView> : BasePresenter<V> {
 
     /**
      * callback for when the view is created, This will be used to re-create the view
@@ -25,7 +24,7 @@ interface EpubReaderPresenter<V : EpubReaderView> : BaseReaderPresenter<V> {
      * @param epubId Id for the given epub document
      * @return [Boolean]
      * */
-    fun doesBookExist(epubId : String) : Boolean
+    fun doesBookExist(epubId: String): Boolean
 
     /**
      * downloads the book onto device
@@ -38,7 +37,7 @@ interface EpubReaderPresenter<V : EpubReaderView> : BaseReaderPresenter<V> {
      * @param mEpubFileName file name of the epub
      * @param
      * */
-    fun onInitializeBook(mEpubFileName: String, epubFilePath :String)
+    fun onInitializeBook(mEpubFileName: String, epubFilePath: String)
 
     /**
      * save the book state when the back button is pressed
@@ -55,20 +54,20 @@ interface EpubReaderPresenter<V : EpubReaderView> : BaseReaderPresenter<V> {
      * @param mSpineReferenceList spine reference list
      * @param epubTitle the epub title
      * */
-    fun onPublicationLoaded(mSpineReferenceList: ArrayList<Link>, epubTitle : String)
+    fun onPublicationLoaded(mSpineReferenceList: ArrayList<Link>, epubTitle: String)
 
 
     /**
      * updates the table of contents of the book for display
      * @param tocLinks TOC Links
      * */
-    fun onTableOfContentsLoaded(tocLinks : MutableList<TOCLink>)
+    fun onTableOfContentsLoaded(tocLinks: MutableList<TOCLink>)
 
     /**
      * loads the TOC from spine if the table of contents is missing
      * @param spineList spine of document to load TOC from
      * */
-    fun onTableOfContentsLoadFromSpine(spineList : List<Link>)
+    fun onTableOfContentsLoadFromSpine(spineList: List<Link>)
 
     /**
      * on stop we want to destroy the server
@@ -80,19 +79,19 @@ interface EpubReaderPresenter<V : EpubReaderView> : BaseReaderPresenter<V> {
      * @param epubTitle this will be used to load up the previous book state of the book
      * @return [Boolean] True if there is a previous book state
      * */
-    fun queryPreviousBookState(epubTitle : String) : Boolean
+    fun queryPreviousBookState(epubTitle: String): Boolean
 
     /**
      * get the previous Book state
      * @param epubTitle The epub title to query
      * @return [Int] The previous book state
      * */
-    fun getPreviousBookState(epubTitle: String) : Int
+    fun getPreviousBookState(epubTitle: String): Int
 
     /**
      * Gets the epub file location given the id of the epub document
      * @param epubId Epub Id of the Epub document
      * @return [String] with file location
      * */
-    fun getEpubFileLocation(epubId: String) : String?
+    fun getEpubFileLocation(epubId: String): String?
 }

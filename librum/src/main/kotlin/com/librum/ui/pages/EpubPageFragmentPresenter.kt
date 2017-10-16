@@ -2,13 +2,13 @@ package com.librum.ui.pages
 
 import android.os.Bundle
 import android.view.View
-import com.librum.ui.base.BaseReaderPresenter
+import com.librum.ui.base.BasePresenter
 
 /**
  * @author lusinabrian on 06/09/17.
  * @Notes page fragment presenter
  */
-interface EpubPageFragmentPresenter<V : EpubPageFragmentView> : BaseReaderPresenter<V> {
+interface EpubPageFragmentPresenter<V : EpubPageFragmentView> : BasePresenter<V> {
 
     /**
      * on view created, initialize properties and fields from saved instance state
@@ -52,7 +52,7 @@ interface EpubPageFragmentPresenter<V : EpubPageFragmentView> : BaseReaderPresen
      * @param view view to be used to access
      * @param isCreated is it created?
      * */
-    fun onHighlightActionItemClicked(mSelectedText: String,actionId: Int, view: View, isCreated: Boolean)
+    fun onHighlightActionItemClicked(mSelectedText: String, actionId: Int, view: View, isCreated: Boolean)
 
     /**
      * Callback for when a highlight action item is clicked
@@ -70,11 +70,11 @@ interface EpubPageFragmentPresenter<V : EpubPageFragmentView> : BaseReaderPresen
      * @param width width of the text selection
      * @param height height of the text selection
      * */
-    fun onTextSelectionActionItemClicked(mSelectedText: String, actionId : Int, view : View, width : Int, height: Int)
+    fun onTextSelectionActionItemClicked(mSelectedText: String, actionId: Int, view: View, width: Int, height: Int)
 
     /**
      * executes html download of a web page
      * @param webViewUrl the Url to download of a given web page
      * */
-    fun onDownloadHtmlWebPage(webViewUrl : String)
+    fun onDownloadHtmlWebPage(webViewUrl: String)
 }

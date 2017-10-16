@@ -1,11 +1,9 @@
 package com.librum.ui.reader
 
 import android.os.Bundle
-import com.brck.moja.base.data.repo.local.db.entity.BaseEntity
 import com.librum.data.EpubReaderDataManager
 import com.librum.data.io.EpubSchedulerProvider
-import com.brck.moja.epubreader.data.model.TOCLinkWrapper
-import com.librum.ui.base.BaseReaderPresenterImpl
+import com.librum.ui.base.BasePresenterImpl
 import io.reactivex.disposables.CompositeDisposable
 import org.readium.r2_streamer.model.publication.link.Link
 import org.readium.r2_streamer.model.tableofcontents.TOCLink
@@ -20,7 +18,7 @@ class EpubReaderPresenterImpl<V : EpubReaderView>
 @Inject
 constructor(mEpubReaderDataManager: EpubReaderDataManager, mCompositeDisposable: CompositeDisposable,
             mSchedulerProvider: EpubSchedulerProvider) : EpubReaderPresenter<V>,
-        BaseReaderPresenterImpl<V>(mEpubReaderDataManager, mCompositeDisposable, mSchedulerProvider) {
+        BasePresenterImpl<V>(mEpubReaderDataManager, mCompositeDisposable, mSchedulerProvider) {
 
     override fun onAttach(mBaseView: V) {
         super.onAttach(mBaseView)

@@ -6,9 +6,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.brck.moja.epubreader.R
-
-import com.brck.moja.epubreader.data.model.TOCLinkWrapper
 import com.librum.utils.DiffUtilCallback
 import kotlinx.android.synthetic.main.row_epub_chapter.view.*
 import org.jetbrains.anko.doAsync
@@ -25,13 +22,13 @@ constructor(var tocLinkWrapperList: ArrayList<TOCLinkWrapper>) : RecyclerView.Ad
 
     private val VIEW_TYPE_CHAPTER = 1
     private val VIEW_TYPE_EMPTY = 0
-    lateinit var chapterCallback : EpubReaderChapterCallback
+    lateinit var chapterCallback: EpubReaderChapterCallback
 
     /**
      * sets the callback for the chapter
      * @param chapterCallback Chapter callback interface
      * */
-    fun setCallback(chapterCallback: EpubReaderChapterCallback){
+    fun setCallback(chapterCallback: EpubReaderChapterCallback) {
         this.chapterCallback = chapterCallback
     }
 
@@ -82,7 +79,7 @@ constructor(var tocLinkWrapperList: ArrayList<TOCLinkWrapper>) : RecyclerView.Ad
             with(itemView) {
                 epubChapterTitle.text = tocLinkWrapper.tocLink.bookTitle
 
-                setOnClickListener{ chapterCallback.onChapterClicked(adapterPosition) }
+                setOnClickListener { chapterCallback.onChapterClicked(adapterPosition) }
             }
         }
     }
@@ -99,7 +96,7 @@ constructor(var tocLinkWrapperList: ArrayList<TOCLinkWrapper>) : RecyclerView.Ad
      * gets the adapter item at the given position
      * @param position the position in the adapter
      * */
-    fun getItemAt(position: Int) : TOCLinkWrapper {
+    fun getItemAt(position: Int): TOCLinkWrapper {
         return tocLinkWrapperList[position]
     }
 

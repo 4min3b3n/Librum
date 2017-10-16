@@ -2,7 +2,7 @@ package com.librum.ui.base;
 
 import android.support.v7.widget.RecyclerView;
 
-import com.brck.moja.epubreader.data.model.TOCLinkWrapper;
+import com.librum.data.model.TOCLinkWrapper;
 
 import java.util.ArrayList;
 import java.util.Collection;

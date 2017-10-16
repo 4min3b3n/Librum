@@ -1,17 +1,16 @@
 package com.librum.ui.reader
 
 import android.os.Bundle
-import com.brck.moja.epubreader.data.model.TOCLinkWrapper
-import com.librum.ui.base.BaseReaderView
+import com.librum.ui.base.BaseView
 import org.readium.r2_streamer.model.publication.EpubPublication
 import org.readium.r2_streamer.model.publication.link.Link
-import java.util.ArrayList
+import java.util.*
 
 /**
  * @author lusinabrian on 05/09/17.
  * @Notes View interface for epub reader
  */
-interface EpubReaderView : BaseReaderView {
+interface EpubReaderView : BaseView {
 
     /**
      * displays a loading progress bar
@@ -46,7 +45,7 @@ interface EpubReaderView : BaseReaderView {
     /**
      * sets up the directional view pager adapter
      * */
-    fun setupDirectionalViewPagerAdapter(mSpineReferenceList: ArrayList<Link>, epubTitle : String)
+    fun setupDirectionalViewPagerAdapter(mSpineReferenceList: ArrayList<Link>, epubTitle: String)
 
     /**
      * updates the navigation drawer Header
@@ -58,7 +57,7 @@ interface EpubReaderView : BaseReaderView {
      * updates the table of contents for the wrapper
      * @param tocLinkWrappers TOC link wrappers for the epub
      * */
-    fun updateNavigationTableOfContents(tocLinkWrappers : ArrayList<TOCLinkWrapper>)
+    fun updateNavigationTableOfContents(tocLinkWrappers: ArrayList<TOCLinkWrapper>)
 
     /**
      * On load publication, will be used to load the epub publication
@@ -73,7 +72,7 @@ interface EpubReaderView : BaseReaderView {
      * This will be used to load the Bundle from the saved state instead of from the received
      * bundle all the time, this will be from the previous saved state of the view
      * */
-    fun receiveEpubIntent(savedInstanceState : Bundle?)
+    fun receiveEpubIntent(savedInstanceState: Bundle?)
 
     /**
      * animate the toolbar and hide it
@@ -90,5 +89,5 @@ interface EpubReaderView : BaseReaderView {
      * @param epubTitle Title of book
      * @param fileLocation file location of book
      * */
-    fun initializeAndRenderBook(epubTitle: String, fileLocation : String)
+    fun initializeAndRenderBook(epubTitle: String, fileLocation: String)
 }

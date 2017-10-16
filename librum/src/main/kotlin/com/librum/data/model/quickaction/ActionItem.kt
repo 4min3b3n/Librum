@@ -1,4 +1,4 @@
-package com.brck.moja.epubreader.data.model.quickaction
+package com.librum.data.model.quickaction
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable

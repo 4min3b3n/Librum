@@ -2,10 +2,8 @@ package com.librum.ui.pages
 
 import android.content.Context
 import android.webkit.JavascriptInterface
-import com.brck.moja.epubreader.data.db.HighLightTable
 import com.librum.ui.reader.EpubReaderActivity
 import com.librum.ui.widgets.ObservableWebView
-import com.brck.moja.epubreader.utils.HighlightUtil
 import org.jetbrains.anko.runOnUiThread
 import org.json.JSONArray
 import org.json.JSONException

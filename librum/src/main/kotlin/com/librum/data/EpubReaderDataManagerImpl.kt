@@ -1,6 +1,5 @@
 package com.librum.data
 
-import com.librum.data.EpubReaderDataManager
 import com.librum.data.files.EpubFileHelper
 import com.librum.data.prefs.EpubReaderPrefs
 import com.librum.data.server.EpubServerHelper
@@ -70,7 +69,7 @@ constructor(val epubReaderPrefs: EpubReaderPrefs, val epubFileHelper: EpubFileHe
         return epubServerHelper.parseManifest(epubFileName)
     }
 
-    override fun downloadHtmlWebPage(webPageUrl: String):Observable<Response<ResponseBody>> {
+    override fun downloadHtmlWebPage(webPageUrl: String): Observable<Response<ResponseBody>> {
         return epubServerHelper.downloadHtmlWebPage(webPageUrl)
     }
 

@@ -1,8 +1,8 @@
 package com.librum.di.components
 
-import com.librum.di.scopes.ActivityScope
-import com.brck.moja.epubreader.data.model.event.AnchorIdEvent
+import com.librum.data.model.event.AnchorIdEvent
 import com.librum.di.modules.EpubActivityModule
+import com.librum.di.scopes.ActivityScope
 import com.librum.ui.pages.EpubPageFragment
 import com.librum.ui.reader.EpubReaderActivity
 import dagger.Component
@@ -15,15 +15,15 @@ import javax.inject.Named
  */
 @ActivityScope
 @Component(modules = arrayOf(EpubActivityModule::class), dependencies = arrayOf(EpubComponent::class))
-interface EpubActivityComponent{
+interface EpubActivityComponent {
 
     /***
      * gets the anchor subject for subscription and posting
      */
     @Named("AnchorSubject")
-    fun getAnchorSubject() : PublishSubject<AnchorIdEvent>
+    fun getAnchorSubject(): PublishSubject<AnchorIdEvent>
 
     fun inject(epubReaderActivity: EpubReaderActivity)
 
-    fun inject(pageFragment : EpubPageFragment)
+    fun inject(pageFragment: EpubPageFragment)
 }

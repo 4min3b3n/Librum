@@ -15,9 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-
-import com.brck.moja.epubreader.R;
-
 import java.util.ArrayList;
 import java.util.List;
 

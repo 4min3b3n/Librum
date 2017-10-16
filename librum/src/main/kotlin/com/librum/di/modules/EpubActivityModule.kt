@@ -1,11 +1,10 @@
 package com.librum.di.modules
 
 import android.support.v7.app.AppCompatActivity
-import com.brck.moja.base.di.modules.BaseActivityModule
-import com.librum.di.scopes.ActivityScope
 import com.librum.data.io.EpubSchedulerProvider
 import com.librum.data.io.EpubSchedulerProviderImpl
-import com.brck.moja.epubreader.data.model.event.AnchorIdEvent
+import com.librum.data.model.event.AnchorIdEvent
+import com.librum.di.scopes.ActivityScope
 import com.librum.ui.pages.EpubPageFragmentPresenter
 import com.librum.ui.pages.EpubPageFragmentPresenterImpl
 import com.librum.ui.pages.EpubPageFragmentView
