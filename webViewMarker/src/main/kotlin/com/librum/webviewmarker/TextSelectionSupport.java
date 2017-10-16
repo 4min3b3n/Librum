@@ -1,30 +1,9 @@
-/*
- * Copyright (C) 2012 - 2014 Brandon Tate, bossturbo
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.bossturban.webviewmarker;
+package com.librum.webviewmarker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.blahti.drag.DragController;
-import com.blahti.drag.DragController.DragBehavior;
-import com.blahti.drag.DragLayer;
-import com.blahti.drag.DragListener;
-import com.blahti.drag.DragSource;
-import com.blahti.drag.MyAbsoluteLayout;
+import com.librum.webviewmarker.DragController.DragBehavior;
 import com.bossturban.webviewmarker.R;
 
 import android.annotation.SuppressLint;
@@ -254,8 +233,8 @@ public class TextSelectionSupport implements TextSelectionControlListener, OnTou
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                MyAbsoluteLayout.LayoutParams startHandleParams = (MyAbsoluteLayout.LayoutParams)mStartSelectionHandle.getLayoutParams();
-                MyAbsoluteLayout.LayoutParams endHandleParams = (MyAbsoluteLayout.LayoutParams)mEndSelectionHandle.getLayoutParams();
+                WebViewMarkerLayout.LayoutParams startHandleParams = (WebViewMarkerLayout.LayoutParams)mStartSelectionHandle.getLayoutParams();
+                WebViewMarkerLayout.LayoutParams endHandleParams = (WebViewMarkerLayout.LayoutParams)mEndSelectionHandle.getLayoutParams();
                 final Context ctx = mActivity;
                 final float scale = getDensityIndependentValue(mScale, ctx);
                 float startX = startHandleParams.x - mWebView.getScrollX() + mStartSelectionHandle.getWidth() * (1 - CENTERING_SHORTER_MARGIN_RATIO);
@@ -323,7 +302,7 @@ public class TextSelectionSupport implements TextSelectionControlListener, OnTou
     }
     private Runnable drawSelectionHandlesHandler = new Runnable(){
         public void run() {
-            MyAbsoluteLayout.LayoutParams startParams = (com.blahti.drag.MyAbsoluteLayout.LayoutParams)mStartSelectionHandle.getLayoutParams();
+            WebViewMarkerLayout.LayoutParams startParams = (WebViewMarkerLayout.LayoutParams)mStartSelectionHandle.getLayoutParams();
             final int startWidth = mStartSelectionHandle.getDrawable().getIntrinsicWidth();
             startParams.x = (int)(mSelectionBounds.left - startWidth * (1.0f - CENTERING_SHORTER_MARGIN_RATIO));
             startParams.y = (int)(mSelectionBounds.top);
@@ -332,7 +311,7 @@ public class TextSelectionSupport implements TextSelectionControlListener, OnTou
             startParams.y = (startParams.y < 0) ? 0 : startParams.y;
             mStartSelectionHandle.setLayoutParams(startParams);
 
-            MyAbsoluteLayout.LayoutParams endParams = (com.blahti.drag.MyAbsoluteLayout.LayoutParams)mEndSelectionHandle.getLayoutParams();
+            WebViewMarkerLayout.LayoutParams endParams = (WebViewMarkerLayout.LayoutParams)mEndSelectionHandle.getLayoutParams();
             final int endWidth = mEndSelectionHandle.getDrawable().getIntrinsicWidth();
             endParams.x = (int) (mSelectionBounds.right - endWidth * CENTERING_SHORTER_MARGIN_RATIO);
             endParams.y = (int) (mSelectionBounds.bottom);

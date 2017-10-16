@@ -1,23 +1,4 @@
-/*
- * This is a modified version of a class from the Android Open Source Project. 
- * The original copyright and license information follows.
- * 
- * Copyright (C) 2006 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.blahti.drag;
+package com.librum.webviewmarker;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -38,16 +19,16 @@ import android.widget.RemoteViews.RemoteView;
  */
 
 @RemoteView
-public class MyAbsoluteLayout extends ViewGroup {
-    public MyAbsoluteLayout(Context context) {
+public class WebViewMarkerLayout extends ViewGroup {
+    public WebViewMarkerLayout(Context context) {
         super(context);
     }
 
-    public MyAbsoluteLayout(Context context, AttributeSet attrs) {
+    public WebViewMarkerLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MyAbsoluteLayout(Context context, AttributeSet attrs,
+    public WebViewMarkerLayout(Context context, AttributeSet attrs,
             int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -69,8 +50,8 @@ public class MyAbsoluteLayout extends ViewGroup {
                 int childRight;
                 int childBottom;
 
-                MyAbsoluteLayout.LayoutParams lp
-                        = (MyAbsoluteLayout.LayoutParams) child.getLayoutParams();
+                WebViewMarkerLayout.LayoutParams lp
+                        = (WebViewMarkerLayout.LayoutParams) child.getLayoutParams();
 
                 childRight = lp.x + child.getMeasuredWidth();
                 childBottom = lp.y + child.getMeasuredHeight();
@@ -118,8 +99,8 @@ public class MyAbsoluteLayout extends ViewGroup {
             View child = getChildAt(i);
             if (child.getVisibility() != GONE) {
 
-                MyAbsoluteLayout.LayoutParams lp =
-                        (MyAbsoluteLayout.LayoutParams) child.getLayoutParams();
+                WebViewMarkerLayout.LayoutParams lp =
+                        (WebViewMarkerLayout.LayoutParams) child.getLayoutParams();
 
                 int childLeft = paddingL + lp.x;
                 int childTop = paddingT + lp.y;
@@ -137,13 +118,13 @@ public class MyAbsoluteLayout extends ViewGroup {
 
     @Override
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new MyAbsoluteLayout.LayoutParams(getContext(), attrs);
+        return new WebViewMarkerLayout.LayoutParams(getContext(), attrs);
     }
 
     // Override to allow type-checking of LayoutParams. 
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof MyAbsoluteLayout.LayoutParams;
+        return p instanceof WebViewMarkerLayout.LayoutParams;
     }
 
     @Override

@@ -1,23 +1,4 @@
-/*
- * This is a modified version of a class from the Android Open Source Project. 
- * The original copyright and license information follows.
- * 
- * Copyright (C) 2008 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.blahti.drag;
+package com.librum.webviewmarker;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -34,7 +15,7 @@ import android.view.View;
  * (1) It extends MyAbsoluteLayout rather than FrameLayout; (2) it implements DragSource and DropTarget methods
  * that were done in a separate Workspace class in the Launcher.
  */
-public class DragLayer extends MyAbsoluteLayout implements DragSource, DropTarget {
+public class DragLayer extends WebViewMarkerLayout implements DragSource, DropTarget {
     private DragController mDragController;
 
     public DragLayer (Context context, AttributeSet attrs) {
