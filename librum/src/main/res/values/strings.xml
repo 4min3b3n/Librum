@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">folioreader</string>
     <string name="andada">Andada</string>
     <string name="lato">Lato</string>
     <string name="lora">Lora</string>
@@ -10,9 +9,6 @@
     <string name="lora_font">fonts/lora/Lora-Regular.ttf</string>
     <string name="raleway_font">fonts/raleway/Raleway-Regular.ttf</string>
 
-    <string name="minutes_left">%1$d minutes ·&#160;</string>
-    <string name="minute_left">%1$d minute ·&#160;</string>
-    <string name="less_than_minute">Less than a minute ·&#160;</string>
 
     <string name="copied">Copied</string>
     <string name="send_to">Send to</string>

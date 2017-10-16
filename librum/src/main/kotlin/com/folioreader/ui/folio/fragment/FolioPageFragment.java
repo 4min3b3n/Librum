@@ -1,7 +1,6 @@
 package com.folioreader.ui.folio.fragment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -9,7 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.ContentLoadingProgressBar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,7 +24,7 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bossturban.webviewmarker.TextSelectionSupport;
+import com.librum.webviewmarker.TextSelectionSupport;
 import com.folioreader.Config;
 import com.folioreader.Constants;
 import com.folioreader.R;

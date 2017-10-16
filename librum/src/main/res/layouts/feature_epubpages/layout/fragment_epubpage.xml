@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/epubPageContainerRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.brck.moja.epubreader.ui.widgets.ObservableWebView
+            android:id="@+id/epubPageObservableWebView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/epubPageIndicatorLayout"
+            android:paddingBottom="2dp"/>
+
+    <com.brck.moja.epubreader.ui.widgets.VerticalSeekbar
+            android:id="@+id/epubPageScrollSeekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/epubPageIndicatorLayout"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="2dp"
+            android:animateLayoutChanges="true"
+            android:thumb="@drawable/thumb"
+            android:visibility="invisible"/>
+
+    <LinearLayout
+            android:id="@+id/epubPageIndicatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp">
+
+        <TextView
+                android:id="@+id/epubPageMinutesLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#888888"
+                android:textSize="7sp"/>
+
+        <TextView
+                android:id="@+id/epubPagesLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#bbbbbb"
+                android:textSize="8sp"/>
+    </LinearLayout>
+</RelativeLayout>
