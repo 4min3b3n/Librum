@@ -27,7 +27,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.folioreader.ui.folio.activity.FolioActivity;
+import com.librum.ui.folio.activity.FolioActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private static final int GALLERY_REQUEST = 102;
