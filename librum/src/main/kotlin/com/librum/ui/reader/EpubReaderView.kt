@@ -1,6 +1,7 @@
 package com.librum.ui.reader
 
 import android.os.Bundle
+import com.librum.data.model.TOCLinkWrapper
 import com.librum.ui.base.BaseView
 import org.readium.r2_streamer.model.publication.EpubPublication
 import org.readium.r2_streamer.model.publication.link.Link
