@@ -13,6 +13,8 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
+import com.brck.moja.epubreader.R
+import com.librum.data.model.TOCLinkWrapper
 import com.librum.data.model.event.AnchorIdEvent
 import com.librum.ui.base.BaseActivity
 import com.librum.ui.base.PageFragmentCallback
@@ -52,7 +54,6 @@ class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback,
     private val mSpineReferenceList = ArrayList<Link>()
 
     private var mChapterPosition: Int = 0
-    lateinit var epubBundle: BaseEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +82,7 @@ class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback,
         }
 
         // initialize the database
-        DbAdapter(this)
+        // DbAdapter(this)
     }
 
     /**

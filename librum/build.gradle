@@ -33,7 +33,7 @@ ext {
     targetSdkVersion = 26
     buildToolsVersion = "26.0.2"
     compileSdkVersion = 26
-    supportLibVersion = "26.1.0"
+    supportLibVersion = "27.0.1"
 
     // *************** DEPENDENCY VERSIONS ************************
 
@@ -44,7 +44,7 @@ ext {
     javaxInjectVersion = "1"
 
     // database & orm
-    roomVersion = "1.0.0-alpha9-1"
+    roomVersion = "1.0.0"
 
     // r2-streamer
     r2StreamerVersion = '0.1.2'
