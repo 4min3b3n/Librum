@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.util.Log;
 
-import com.brck.moja.epubreader.data.model.Highlight;
+import com.librum.data.model.Highlight;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

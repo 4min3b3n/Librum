@@ -3,6 +3,7 @@ package com.librum.ui.base
 import com.librum.data.EpubReaderDataManager
 import com.librum.data.io.EpubSchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
+import org.jetbrains.anko.AnkoLogger
 import javax.inject.Inject
 
 /**
@@ -10,10 +11,9 @@ import javax.inject.Inject
  * @Notes Base reader presenter implementation
  */
 abstract class BasePresenterImpl<V : BaseView>
-@Inject
 constructor(val epubReaderDataManager: EpubReaderDataManager,
             val mCompositeDisposable: CompositeDisposable,
-            val mSchedulerProvider: EpubSchedulerProvider) : BasePresenter<V> {
+            val mSchedulerProvider: EpubSchedulerProvider) : BasePresenter<V>, AnkoLogger {
 
     /**
      * Gets the base view

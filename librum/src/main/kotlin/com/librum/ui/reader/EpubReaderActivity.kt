@@ -13,13 +13,17 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
-import com.brck.moja.epubreader.R
+import com.librum.R
+import com.librum.data.model.Highlight
 import com.librum.data.model.TOCLinkWrapper
 import com.librum.data.model.event.AnchorIdEvent
 import com.librum.ui.base.BaseActivity
 import com.librum.ui.base.PageFragmentCallback
 import com.librum.ui.pages.PageFragmentAdapter
 import com.librum.ui.widgets.DirectionalViewpager
+import com.librum.utils.loadImageFromUrl
+import kotlinx.android.synthetic.main.activity_epubreader.*
+import kotlinx.android.synthetic.main.nav_epub_header.view.*
 import org.jetbrains.anko.info
 import org.readium.r2_streamer.model.publication.EpubPublication
 import org.readium.r2_streamer.model.publication.link.Link
@@ -45,6 +49,7 @@ class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback,
 
     private lateinit var epubTitle: String
     private lateinit var epubBookCoverUrl: String
+    private lateinit var epubUrl : String
 
     lateinit var epubTitleView: TextView
     lateinit var epubAuthorTxtView: TextView
@@ -71,15 +76,15 @@ class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback,
 
     override fun onResume() {
         super.onResume()
-
-        if (epubReaderPresenter.doesBookExist(epubBundle.id)) {
-            val fileLocation = epubReaderPresenter.getEpubFileLocation(epubBundle.id)
-            initializeAndRenderBook(epubBundle.title, fileLocation!!)
-            // epubReaderPresenter.onInitializeBook()
-        } else {
-            // trigger download which will then initialize the book once done
-            epubReaderPresenter.onDownloadBook(epubBundle)
-        }
+        // fixme: epub id
+//        if (epubReaderPresenter.doesBookExist(epubBundle.id)) {
+//            val fileLocation = epubReaderPresenter.getEpubFileLocation(epubBundle.id)
+//            initializeAndRenderBook(epubBundle.title, fileLocation!!)
+//            // epubReaderPresenter.onInitializeBook()
+//        } else {
+//            // trigger download which will then initialize the book once done
+//            epubReaderPresenter.onDownloadBook(epubBundle)
+//        }
 
         // initialize the database
         // DbAdapter(this)
@@ -89,14 +94,12 @@ class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback,
      * receives epub bundle from view
      * */
     override fun receiveEpubIntent(savedInstanceState: Bundle?) {
+        // fixme receive epub intent
         if (savedInstanceState != null) {
-            epubBundle = savedInstanceState.getParcelable(DOCSURIKEY)
+            // epubUrl = savedInstanceState.getParcelable(DOCSURIKEY)
         } else if (intent != null && intent.extras != null) {
-            epubBundle = intent.extras.getParcelable(DOCSURIKEY)
+            // epubUrl = intent.extras.getParcelable(DOCSURIKEY)
         }
-
-        epubTitle = epubBundle.title
-        epubBookCoverUrl = epubBundle.data!!.thumbnailUrls!![0]
     }
 
     override fun initializeAndRenderBook(epubTitle: String, fileLocation: String) {
@@ -107,14 +110,14 @@ class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback,
      * save instance state of the epub document
      * */
     override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putParcelable(DOCSURIKEY, epubBundle)
+        // outState?.putParcelable(DOCSURIKEY, epubBundle)
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
         if (savedInstanceState != null) {
-            epubBundle = savedInstanceState.getParcelable(DOCSURIKEY)
+            // epubBundle = savedInstanceState.getParcelable(DOCSURIKEY)
         }
     }
 
@@ -133,7 +136,8 @@ class EpubReaderActivity : BaseActivity(), EpubReaderView, PageFragmentCallback,
         epubErrorPage.visibility = View.VISIBLE
 
         epubErrorPage.findViewById<Button>(R.id.errorViewBtnRetry).setOnClickListener {
-            epubReaderPresenter.onDownloadBook(epubBundle)
+            // fixme, epub url
+            epubReaderPresenter.onDownloadBook(epubUrl)
         }
     }
 

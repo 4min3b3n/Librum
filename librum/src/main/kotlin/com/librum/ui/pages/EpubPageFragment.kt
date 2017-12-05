@@ -16,17 +16,25 @@ import android.view.animation.AnimationUtils
 import android.webkit.*
 import android.widget.TextView
 import com.librum.*
+import com.librum.R
+import com.librum.data.model.Highlight
 import com.librum.data.model.event.WebViewPosition
+import com.librum.data.model.quickaction.ActionItem
+import com.librum.data.model.quickaction.QuickAction
 import com.librum.ui.base.BaseFragment
 import com.librum.ui.base.PageFragmentCallback
 import com.librum.ui.reader.EpubReaderActivity
 import com.librum.ui.widgets.ObservableWebView
+import com.librum.ui.widgets.VerticalSeekbar
 import com.librum.utils.convertDpToPixel
 import com.librum.utils.copyToClipboard
 import com.librum.utils.getHtmlContent
+import com.librum.webviewmarker.TextSelectionSupport
 import kotlinx.android.synthetic.main.fragment_epubpage.view.*
 import org.jetbrains.anko.debug
 import org.jetbrains.anko.error
+import org.jetbrains.anko.share
+import org.jetbrains.anko.toast
 import org.readium.r2_streamer.model.publication.link.Link
 import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
@@ -343,7 +351,7 @@ class EpubPageFragment : BaseFragment(), EpubPageFragmentView, ObservableWebView
                             val height = matcher.group(4).toDouble()
                             onHighlightAction(
                                     convertDpToPixel(left.toFloat(), activity).toInt(),
-                                    convertDpToPixel(top.toFloat(), activity).toInt(),
+                                    convertDpToPixel(top.toFloat(), context!!).toInt(),
                                     convertDpToPixel(width.toFloat(), activity).toInt(),
                                     convertDpToPixel(height.toFloat(), activity).toInt()
                             )
@@ -477,9 +485,9 @@ class EpubPageFragment : BaseFragment(), EpubPageFragmentView, ObservableWebView
             //            addActionItem(ActionItem(ACTION_ID_HIGHLIGHT_COLOR, ContextCompat.getDrawable(activity,
 //                    R.drawable.colors_marker)))
             addActionItem(ActionItem(ACTION_ID_DELETE, icon =
-            ContextCompat.getDrawable(activity, R.drawable.ic_action_discard)))
+            ContextCompat.getDrawable(context!!, R.drawable.ic_action_discard)))
             addActionItem(ActionItem(ACTION_ID_SHARE, icon =
-            ContextCompat.getDrawable(activity, R.drawable.ic_action_share)))
+            ContextCompat.getDrawable(context!!, R.drawable.ic_action_share)))
             setOnActionItemClickListener { _, _, actionId ->
                 dismiss()
                 root.removeView(view)

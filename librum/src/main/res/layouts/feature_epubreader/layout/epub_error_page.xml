@@ -45,7 +45,6 @@
             android:id="@+id/errorViewImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_error_404_car"
             android:contentDescription="@null"
             android:scaleType="fitEnd"
             app:layout_constraintTop_toBottomOf="@+id/errorViewMessage"

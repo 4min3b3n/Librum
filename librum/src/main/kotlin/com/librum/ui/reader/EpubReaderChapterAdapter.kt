@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.librum.R
+import com.librum.data.model.TOCLinkWrapper
 import com.librum.utils.DiffUtilCallback
 import kotlinx.android.synthetic.main.row_epub_chapter.view.*
 import org.jetbrains.anko.doAsync

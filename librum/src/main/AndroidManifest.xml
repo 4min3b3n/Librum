@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.brck.moja.epubreader">
+          package="com.librum">
 
     <application
             tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
 
         <activity
-                android:name="com.librum.ui.reader.EpubReaderActivity"
+                android:name=".ui.reader.EpubReaderActivity"
                 android:configChanges="orientation|screenSize">
         </activity>
     </application>

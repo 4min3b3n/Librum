@@ -3,8 +3,10 @@ package com.librum.ui.reader
 import android.os.Bundle
 import com.librum.data.EpubReaderDataManager
 import com.librum.data.io.EpubSchedulerProvider
+import com.librum.data.model.TOCLinkWrapper
 import com.librum.ui.base.BasePresenterImpl
 import io.reactivex.disposables.CompositeDisposable
+import org.jetbrains.anko.error
 import org.readium.r2_streamer.model.publication.link.Link
 import org.readium.r2_streamer.model.tableofcontents.TOCLink
 import java.util.*
@@ -39,26 +41,26 @@ constructor(mEpubReaderDataManager: EpubReaderDataManager, mCompositeDisposable:
         return epubReaderDataManager.getEpubFileLocation(epubId)
     }
 
-    override fun onDownloadBook(epubBundle: BaseEntity) {
+    override fun onDownloadBook(epubUrl: String) {
         baseView.hideErrorPage()
         baseView.displayLoadingProgress()
-
-        val epubTitle = epubBundle.title
-        val epubId = epubBundle.id
-        val sourceUrl = epubBundle.data!!.srcUrls!![0].srcUrl
+//
+//        val epubTitle = epubBundle.title
+//        val epubId = epubBundle.id
+//        val sourceUrl = epubBundle.data!!.srcUrls!![0].srcUrl
         var errorEncountered = false
 
         mCompositeDisposable.add(
-                epubReaderDataManager.downloadEpubFile(sourceUrl)
+                epubReaderDataManager.downloadEpubFile(epubUrl)
                         .subscribeOn(mSchedulerProvider.newThread())
                         .subscribe({
                             errorEncountered = if (it.isSuccessful) {
                                 // success, on next
                                 val fileLocation = epubReaderDataManager.saveResponseBodyToDisk(
-                                        epubId, it.body())
+                                        "epubId", it.body())
 
                                 // save to shared prefs
-                                epubReaderDataManager.saveEpubFileLocation(epubId, fileLocation)
+                                epubReaderDataManager.saveEpubFileLocation("epubId", fileLocation)
                                 false
                                 // now we can initialize the book
 //                                baseView.setupNavigationDrawerRecycler()
@@ -87,8 +89,8 @@ constructor(mEpubReaderDataManager: EpubReaderDataManager, mCompositeDisposable:
             // now we can initialize the book
             baseView.setupNavigationDrawerRecycler()
             baseView.updateNavigationDrawerHeader()
-            val epubFileLocation = epubReaderDataManager.getEpubFileLocation(epubId)
-            baseView.initializeAndRenderBook(epubTitle, epubFileLocation)
+            val epubFileLocation = epubReaderDataManager.getEpubFileLocation("epubId")
+            baseView.initializeAndRenderBook("epubTitle", epubFileLocation)
             baseView.hideErrorPage()
             baseView.dismissLoadingProgress()
         }

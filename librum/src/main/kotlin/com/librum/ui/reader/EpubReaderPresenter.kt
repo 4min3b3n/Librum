@@ -30,7 +30,7 @@ interface EpubReaderPresenter<V : EpubReaderView> : BasePresenter<V> {
      * downloads the book onto device
      * @param epubBundle the book bundle to download
      * */
-    fun onDownloadBook(epubBundle: BaseEntity)
+    fun onDownloadBook(epubUrl: String)
 
     /**
      * this starts up a server that initializes the book to display

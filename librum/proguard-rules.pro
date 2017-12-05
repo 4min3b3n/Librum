@@ -66,6 +66,9 @@
 -dontwarn retrofit2.converter.gson.package-info
 
 -dontwarn com.fasterxml.jackson.databind.ext.**
+-dontwarn com.fasterxml.jackson.databind.**
+-keep class com.fasterxml.jackson.annotation.** { *; }
+-keep class com.fasterxml.jackson.annotation.** { *** PUBLIC_ONLY; }
 
 # reactive x
 -dontwarn io.reactivex.rxkotlin.**

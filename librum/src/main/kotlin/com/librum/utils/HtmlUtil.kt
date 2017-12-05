@@ -3,6 +3,8 @@
 package com.librum.utils
 
 import android.content.Context
+import com.librum.R
+import com.librum.data.db.HighLightTable
 import java.util.regex.Pattern
 
 
