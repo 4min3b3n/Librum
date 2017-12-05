@@ -2,8 +2,10 @@ package com.librum.ui.pages
 
 import android.content.Context
 import android.webkit.JavascriptInterface
+import com.librum.data.db.HighLightTable
 import com.librum.ui.reader.EpubReaderActivity
 import com.librum.ui.widgets.ObservableWebView
+import com.librum.utils.HighlightUtil
 import org.jetbrains.anko.runOnUiThread
 import org.json.JSONArray
 import org.json.JSONException
@@ -38,6 +40,7 @@ class EpubPageJSInterface constructor(val context: Context) {
 
     @JavascriptInterface
     fun getHtmlAndSaveHighlight(html: String?) {
+        //fixme: highlight util
         if (html != null && mHighlightMap != null) {
             var highlight = HighlightUtil.matchHighlight(html, mHighlightMap?.get("id"),
                     mBookTitle, mPosition)

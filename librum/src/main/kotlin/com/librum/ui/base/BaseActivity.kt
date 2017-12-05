@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.app.AppCompatDelegate
 import android.view.View
 import android.widget.TextView
+import com.brck.moja.epubreader.R
+import com.librum.di.components.DaggerEpubActivityComponent
+import com.librum.di.components.DaggerEpubComponent
 import com.librum.di.components.EpubActivityComponent
 import com.librum.di.components.EpubComponent
 import com.librum.di.modules.EpubActivityModule
@@ -22,10 +25,20 @@ import org.jetbrains.anko.AnkoLogger
  */
 abstract class BaseActivity : AppCompatActivity(), BaseView, BaseFragment.Callback, AnkoLogger {
 
-    lateinit var epubActivityComponent: EpubActivityComponent
-        private set
+    val epubComponent: EpubComponent by lazy{
+        DaggerEpubComponent.builder()
+                .epubModule(EpubModule(application))
+                .epubServerModule(EpubServerModule())
+                .epubDatabaseModule(EpubDatabaseModule())
+                .build()
+    }
 
-    lateinit var epubComponent: EpubComponent
+    val epubActivityComponent: EpubActivityComponent by lazy{
+        DaggerEpubActivityComponent.builder()
+                .epubComponent(epubComponent)
+                .epubActivityModule(EpubActivityModule(this))
+                .build()
+    }
 
     init {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
@@ -34,17 +47,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, BaseFragment.Callba
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        epubComponent = DaggerEpubComponent.builder()
-                .epubModule(EpubModule())
-                .epubServerModule(EpubServerModule())
-                .epubDatabaseModule(EpubDatabaseModule())
-                .build()
-
-        epubActivityComponent = DaggerEpubActivityComponent.builder()
-                .epubComponent(epubComponent)
-                .baseActivityModule(BaseActivityModule(this))
-                .epubActivityModule(EpubActivityModule())
-                .build()
     }
 
     override fun onError() {

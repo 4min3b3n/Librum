@@ -1,5 +1,6 @@
 package com.librum.di.modules
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import com.librum.data.io.EpubSchedulerProvider
 import com.librum.data.io.EpubSchedulerProviderImpl
@@ -15,6 +16,7 @@ import com.librum.ui.reader.EpubReaderPresenterImpl
 import com.librum.ui.reader.EpubReaderView
 import dagger.Module
 import dagger.Provides
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Named
 
@@ -22,8 +24,24 @@ import javax.inject.Named
  * @author lusinabrian on 05/09/17.
  * @Notes activity module for the epub
  */
-@Module(includes = arrayOf(BaseActivityModule::class))
-class EpubActivityModule {
+@Module
+class EpubActivityModule(private val mActivity: AppCompatActivity) {
+
+    @Provides
+    @ActivityScope
+    fun provideContext(): Context {
+        return mActivity
+    }
+
+    @Provides
+    fun provideActivity(): AppCompatActivity {
+        return mActivity
+    }
+
+    @Provides
+    fun provideCompositeDisposable(): CompositeDisposable {
+        return CompositeDisposable()
+    }
 
     /**
      * This will be used to publish subjects when a chapter is selected

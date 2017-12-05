@@ -18,6 +18,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import com.librum.ui.widgets.UnderlinedTextView
 import java.lang.ref.SoftReference
 import java.util.*
 

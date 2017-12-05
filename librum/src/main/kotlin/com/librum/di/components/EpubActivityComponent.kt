@@ -14,7 +14,7 @@ import javax.inject.Named
  * @Notes activity component
  */
 @ActivityScope
-@Component(modules = arrayOf(EpubActivityModule::class), dependencies = arrayOf(EpubComponent::class))
+@Component(modules = [(EpubActivityModule::class)], dependencies = [(EpubComponent::class)])
 interface EpubActivityComponent {
 
     /***

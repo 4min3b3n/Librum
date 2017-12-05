@@ -36,7 +36,7 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <com.brck.moja.epubreader.ui.widgets.DirectionalViewpager
+        <com.librum.ui.widgets.DirectionalViewpager
                 android:id="@+id/directionalPageViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

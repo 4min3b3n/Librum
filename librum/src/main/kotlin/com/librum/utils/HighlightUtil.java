@@ -2,7 +2,7 @@ package com.librum.utils;
 
 import android.util.Log;
 
-import com.brck.moja.epubreader.data.model.Highlight;
+import com.librum.data.model.Highlight;
 
 import java.util.Calendar;
 import java.util.regex.Matcher;

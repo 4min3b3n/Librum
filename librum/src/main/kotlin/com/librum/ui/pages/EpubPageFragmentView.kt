@@ -2,6 +2,7 @@ package com.librum.ui.pages
 
 import android.os.Bundle
 import android.view.View
+import com.librum.data.model.Highlight
 import com.librum.ui.base.BaseView
 
 /**

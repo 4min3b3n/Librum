@@ -33,9 +33,19 @@ ext {
     targetSdkVersion = 26
     buildToolsVersion = "26.0.2"
     compileSdkVersion = 26
-    supportLibVersion = "27.0.1"
+    supportLibVersion = "27.0.2"
+    constraintLayoutVersion = "1.0.2"
+
+    // multidex version
+    multiDexEnabledVersion = "1.0.2"
+
+    // anko version
+    ankoVersion = "0.10.1"
 
     // *************** DEPENDENCY VERSIONS ************************
+
+    glideVersion = "4.0.0"
+    glideCompilerVersion = "4.4.0"
 
     // Dependency Injection
     javaxAnnotationVersion = "1.0"
@@ -57,9 +67,27 @@ ext {
     retrofitAdapterVersion = "2.3.0"
 
     // reactive
-    rxjava2Version = '2.1.1'
+    rxjava2Version = '2.1.7'
     rxandroidVersion = '2.0.1'
     rxKotlinVersion = "2.1.0"
+
+    // test dependencies
+
+    // robolectric version
+    robolectricVersion = "3.4.2"
+    robolectricShadowsMultidex = "3.3.2"
+
+    truthVersion = "0.35"
+    espressoVersion = "3.0.0"
+    jUnitVersion = "4.12"
+    mockitoVersion = "2.7.1"
+    mockWebServerVersion = "3.6.0"
+    testRunnerVersion = "1.0.0"
+    espressoContribVersion = "2.0"
+    assertJVersion = "3.6.2"
+    spekVersion = "1.1.2"
+    mockitoKotlinVersion = "1.4.0"
+    hamcrestVersion = "1.3"
 }
 
 android {
@@ -160,6 +188,11 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$supportLibVersion"
     implementation "com.android.support:support-v4:$supportLibVersion"
     implementation "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideCompilerVersion"
 
     // ******************** swipe layout *********************
     implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
