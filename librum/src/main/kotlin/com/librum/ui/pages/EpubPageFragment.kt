@@ -351,7 +351,7 @@ class EpubPageFragment : BaseFragment(), EpubPageFragmentView, ObservableWebView
                             val height = matcher.group(4).toDouble()
                             onHighlightAction(
                                     convertDpToPixel(left.toFloat(), activity).toInt(),
-                                    convertDpToPixel(top.toFloat(), activity).toInt(),
+                                    convertDpToPixel(top.toFloat(), context!!).toInt(),
                                     convertDpToPixel(width.toFloat(), activity).toInt(),
                                     convertDpToPixel(height.toFloat(), activity).toInt()
                             )
@@ -485,9 +485,9 @@ class EpubPageFragment : BaseFragment(), EpubPageFragmentView, ObservableWebView
             //            addActionItem(ActionItem(ACTION_ID_HIGHLIGHT_COLOR, ContextCompat.getDrawable(activity,
 //                    R.drawable.colors_marker)))
             addActionItem(ActionItem(ACTION_ID_DELETE, icon =
-            ContextCompat.getDrawable(activity, R.drawable.ic_action_discard)))
+            ContextCompat.getDrawable(context!!, R.drawable.ic_action_discard)))
             addActionItem(ActionItem(ACTION_ID_SHARE, icon =
-            ContextCompat.getDrawable(activity, R.drawable.ic_action_share)))
+            ContextCompat.getDrawable(context!!, R.drawable.ic_action_share)))
             setOnActionItemClickListener { _, _, actionId ->
                 dismiss()
                 root.removeView(view)
