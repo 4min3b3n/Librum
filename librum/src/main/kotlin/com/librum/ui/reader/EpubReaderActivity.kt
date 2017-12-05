@@ -13,7 +13,7 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
-import com.brck.moja.epubreader.R
+import com.librum.R
 import com.librum.data.model.Highlight
 import com.librum.data.model.TOCLinkWrapper
 import com.librum.data.model.event.AnchorIdEvent

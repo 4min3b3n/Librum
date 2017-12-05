@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.app.AppCompatDelegate
 import android.view.View
 import android.widget.TextView
-import com.brck.moja.epubreader.R
+import com.librum.R
 import com.librum.di.components.DaggerEpubActivityComponent
 import com.librum.di.components.DaggerEpubComponent
 import com.librum.di.components.EpubActivityComponent

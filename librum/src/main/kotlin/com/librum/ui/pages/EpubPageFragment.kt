@@ -15,8 +15,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.webkit.*
 import android.widget.TextView
-import com.brck.moja.epubreader.R
 import com.librum.*
+import com.librum.R
 import com.librum.data.model.Highlight
 import com.librum.data.model.event.WebViewPosition
 import com.librum.data.model.quickaction.ActionItem

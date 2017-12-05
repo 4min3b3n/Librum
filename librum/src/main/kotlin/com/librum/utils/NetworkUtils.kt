@@ -50,22 +50,3 @@ fun isMobileDataEnabled(context: Context): Boolean {
     }
     return false
 }
-
-/**
- * Checks if the device is connected to a Moja network
- * @param context The context in which to run this method
- * @return [String] SSID of the wifi
- * */
-fun isConnectedToMojaNetwork(context: Context): Boolean {
-    val manager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-    if (manager.isWifiEnabled) {
-        val wifiInfo = manager.connectionInfo
-        if (wifiInfo != null) {
-            val state = WifiInfo.getDetailedStateOf(wifiInfo.supplicantState)
-            if (state == NetworkInfo.DetailedState.CONNECTED || state == NetworkInfo.DetailedState.OBTAINING_IPADDR) {
-                return wifiInfo.ssid == MOJA_SSID
-            }
-        }
-    }
-    return false
-}
