@@ -29,7 +29,7 @@ ext {
     versionName = "1.1.0"
     minSdkVersion = 16
     targetSdkVersion = 26
-    buildToolsVersion = "26.0.1"
+    buildToolsVersion = "26.0.2"
     compileSdkVersion = 26
 }
 
@@ -79,4 +79,8 @@ android {
         disable 'IconDensities'  //For testing purpose. This is safe to remove.
         disable 'IconMissingDensityFolder'  //For testing purpose.
     }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
