@@ -1,11 +1,10 @@
 package com.librum.data.prefs
 
 import android.content.Context
-import android.content.SharedPreferences
-import com.librum.BOOK_STATE
-import com.librum.BOOK_TITLE
-import com.librum.VIEWPAGER_POSITION
-import com.librum.WEBVIEW_SCROLL_POSITION
+import com.librum.utils.BOOK_STATE
+import com.librum.utils.BOOK_TITLE
+import com.librum.utils.VIEWPAGER_POSITION
+import com.librum.utils.WEBVIEW_SCROLL_POSITION
 import com.librum.di.qualifiers.AppContextQualifier
 import com.librum.utils.removeData
 import com.librum.utils.saveData

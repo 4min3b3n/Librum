@@ -2,11 +2,11 @@ package com.librum.ui.pages
 
 import android.os.Bundle
 import android.view.View
-import com.librum.*
 import com.librum.data.EpubReaderDataManager
 import com.librum.data.io.EpubSchedulerProvider
 import com.librum.data.model.Highlight
 import com.librum.ui.base.BasePresenterImpl
+import com.librum.utils.*
 import io.reactivex.disposables.CompositeDisposable
 import org.jetbrains.anko.error
 import javax.inject.Inject

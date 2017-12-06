@@ -1,6 +1,6 @@
 package com.librum.di.modules
 
-import com.librum.EPUB_READER_DATABASE_NAME
+import com.librum.utils.EPUB_READER_DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

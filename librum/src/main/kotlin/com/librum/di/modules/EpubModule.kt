@@ -2,7 +2,7 @@ package com.librum.di.modules
 
 import android.app.Application
 import android.content.Context
-import com.librum.EPUB_READER_PREF_FILE_NAME
+import com.librum.utils.EPUB_READER_PREF_FILE_NAME
 import com.librum.data.EpubReaderDataManager
 import com.librum.data.EpubReaderDataManagerImpl
 import com.librum.data.files.EpubFileHelper

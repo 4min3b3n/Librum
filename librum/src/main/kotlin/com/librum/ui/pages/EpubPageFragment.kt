@@ -15,7 +15,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.webkit.*
 import android.widget.TextView
-import com.librum.*
 import com.librum.R
 import com.librum.data.model.Highlight
 import com.librum.data.model.event.WebViewPosition
@@ -26,9 +25,7 @@ import com.librum.ui.base.PageFragmentCallback
 import com.librum.ui.reader.EpubReaderActivity
 import com.librum.ui.widgets.ObservableWebView
 import com.librum.ui.widgets.VerticalSeekbar
-import com.librum.utils.convertDpToPixel
-import com.librum.utils.copyToClipboard
-import com.librum.utils.getHtmlContent
+import com.librum.utils.*
 import com.librum.webviewmarker.TextSelectionSupport
 import kotlinx.android.synthetic.main.fragment_epubpage.view.*
 import org.jetbrains.anko.debug

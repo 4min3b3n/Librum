@@ -1,6 +1,6 @@
 package com.librum.data.server
 
-import com.librum.LOCALHOST
+import com.librum.utils.LOCALHOST
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import org.jetbrains.anko.AnkoAsyncContext
